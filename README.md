@@ -1,6 +1,6 @@
 # buffer-overflow-linux-64-bit
 buffer overflow linux 64 bit
-
+![Image](https://github.com/abdullah-baghuth/buffer-overflow-linux-64-bit/blob/main/buffer.png)
 gdb-peda$ file app
 Reading symbols from app...
 
